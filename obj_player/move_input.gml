@@ -21,10 +21,23 @@ if (place_meeting(x,y+1,obj_wall1)) // Si obj_player detecte obj_wall1 à sa pos
 
 if (place_meeting(x+hsp,y,obj_wall1)) // Si obj_player rencontre horizontalement obj_wall1 si la fonction hsp (mouvement horizontale) est utilisé
 {
-  while(!place_meeting(x+sign(hsp),y,obj_wall1)) // Loop ; tant que obj_player ne rencontre pas de collison calculé 1 px par 1 px
+  while(!place_meeting(x+sign(hsp),y,obj_wall1)) // Loop ; tant que obj_player ne rencontre pas de collison calculé 1 px par 1 px à gauche ou à droite (dépend du signe de hsp) d'ou x+sign (définis si obj_player va à gauche ou a droite)
   {
-    x+= sign(hsp); // x
+    x+= sign(hsp); // Récupère le status de hsp (1 ou -1, pour gauche ou droite)
   }
-  hsp = 0;
+  hsp = 0; // Horizontal speed passe à 0 si obj_player rencontre obj_wall1, le joueur s'arrête et la collision est simulée
 }
-x += hsp;
+x += hsp; // définis la valeur de x (donc la posiiton de obj_player) par rapport à hsp
+
+
+// Vertical Collision
+
+if (place_meeting(x,y+vsp,obj_wall1)) // Si obj_player rencontre veritcalement obj_wall1 si la fonction vsp (mouvement verticale) est utilisé
+{
+  while(!place_meeting(x,y+sign(vsp),obj_wall1)) // Loop ; tant que obj_player ne rencontre pas de collison calculé 1 px par 1 px vers le haut ou le bas (dépend du signe de vsp) d'ou y+sign (définis si obj_player va vers le haut ou vers le bas)
+  {
+    x+= sign(vsp); // Récupère le status de vsp (1 ou -1, pour haut ou bas)
+  }
+  vsp = 0; // Vertical speed passe à 0 si obj_player rencontre obj_wall1, le joueur s'arrête et la collision est simulée
+}
+x += vsp;

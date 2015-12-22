@@ -45,24 +45,24 @@ x += vsp;
 
 // Left Wall Jump
 
-if (place_meeting(x+1,y,obj_wall1)) && keyboard_check_pressed = key_jump)
+if (place_meeting(x+1,y,obj_wall1)) && keyboard_check_pressed = key_jump) // Si obj_player détecte un mur à sa gauche et qu'il appuie sur ESPACE
 {
-  while (!place_meeting(x-1,y+1,obj_wall1))
+  while (!place_meeting(x,y+1,obj_wall1)) // Check si il n'est pas sur le sol
   {
-    vsp = -jumpspeed * 2
-    hsp = movespeed * 2
-  }
+    vsp = -jumpspeed * 2 // Alors obj_player, une fois la touche espace appuyé, va subir une poussée verticale définis par la formule
+    hsp = movespeed * 2 // Alors obj_player, une fois la touche espace appuyé, va subir une poussée horizontale définis par la formule
+  } // Résultat : Si le joueur touchait un mur à sa gauche et qu'il a appuyé sur espace, celui-ci aura une poussée en diagonale dans la direction opposée
 }
 
 
 // Right Wall Jump
 
-if (place_meeting(x-1,y,obj_wall1)) && keyboard_check_pressed = key_jump)
+if (place_meeting(x-1,y,obj_wall1)) && keyboard_check_pressed = key_jump) // Si obj_player détecte un mur à sa droite et qu'il appuie sur ESPACE
 {
-  while (!place_meeting(x+1,y+1,obj_wall1))
+  while (!place_meeting(x+1,y+1,obj_wall1)) // Check si il n'est pas sur le sol
   {
-    vsp = -jumpspeed * 2
-    hsp = -movespeed * 2
-  }
+    vsp = -jumpspeed * 2 // Alors obj_player, une fois la touche espace appuyé, va subir une poussée verticale définis par la formule
+    hsp = -movespeed * 2 // Alors obj_player, une fois la touche espace appuyé, va subir une poussée horizontale définis par la formule
+  } // Résultat : Si le joueur touchait un mur à sa droite et qu'il a appuyé sur espace, celui-ci aura une poussée en diagonale dans la direction opposée
 }
   

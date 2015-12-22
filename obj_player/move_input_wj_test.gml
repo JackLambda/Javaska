@@ -49,8 +49,8 @@ if (place_meeting(x+1,y,obj_wall1)) && keyboard_check_pressed = key_jump) // Si 
 {
   while (!place_meeting(x,y+1,obj_wall1)) // Check si il n'est pas sur le sol
   {
-    vsp = -jumpspeed * 2 // Alors obj_player, une fois la touche espace appuyé, va subir une poussée verticale définis par la formule
-    hsp = movespeed * 2 // Alors obj_player, une fois la touche espace appuyé, va subir une poussée horizontale définis par la formule
+    vsp = -jumpspeed * 2; // Alors obj_player, une fois la touche espace appuyé, va subir une poussée verticale définis par la formule
+    hsp = movespeed * 2; // Alors obj_player, une fois la touche espace appuyé, va subir une poussée horizontale définis par la formule
   } // Résultat : Si le joueur touchait un mur à sa gauche et qu'il a appuyé sur espace, celui-ci aura une poussée en diagonale dans la direction opposée
 }
 
@@ -61,8 +61,27 @@ if (place_meeting(x-1,y,obj_wall1)) && keyboard_check_pressed = key_jump) // Si 
 {
   while (!place_meeting(x+1,y+1,obj_wall1)) // Check si il n'est pas sur le sol
   {
-    vsp = -jumpspeed * 2 // Alors obj_player, une fois la touche espace appuyé, va subir une poussée verticale définis par la formule
-    hsp = -movespeed * 2 // Alors obj_player, une fois la touche espace appuyé, va subir une poussée horizontale définis par la formule
+    vsp = -jumpspeed * 2; // Alors obj_player, une fois la touche espace appuyé, va subir une poussée verticale définis par la formule
+    hsp = -movespeed * 2; // Alors obj_player, une fois la touche espace appuyé, va subir une poussée horizontale définis par la formule
   } // Résultat : Si le joueur touchait un mur à sa droite et qu'il a appuyé sur espace, celui-ci aura une poussée en diagonale dans la direction opposée
 }
   
+
+// Sticky wall slide left - Permet au joueur, si il reste appuyé sur la flèche gauche, de glisser doucement le long du mur au lieu de chuter
+
+if (place_meeting(x+1,y,obj_wall1)) && keyboard_check = key_left) // Si obj_player détecte un mur à sa gauche et qu'il appuie sur flèche de gauche
+{
+  while (!place_meeting(x,y+1,obj_wall1)) // Check si obj_player n'est pas sur le sol
+  {
+    vsp = -jumpspeed * 1.2;
+}
+
+
+// Sticky wall slide right - Permet au joueur, si il reste appuyé sur la flèche droite, de glisser doucement le long du mur au lieu de chuter
+
+if (place_meeting(x-1,y,obj_wall1)) && keyboard_check = key_right) // Si obj_player détecte un mur à sa droite et qu'il appuie sur flèche de droite
+{
+  while (!place_meeting(x,y+1,obj_wall1)) // Check si obj_player n'est pas sur le sol
+  {
+    vsp = -jumpspeed * 1.2;
+}

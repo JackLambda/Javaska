@@ -36,11 +36,11 @@ if (place_meeting(x,y+vsp,obj_wall1)) // Si obj_player rencontre veritcalement o
 {
   while(!place_meeting(x,y+sign(vsp),obj_wall1)) // Loop ; tant que obj_player ne rencontre pas de collison calculé 1 px par 1 px vers le haut ou le bas (dépend du signe de vsp) d'ou y+sign (définis si obj_player va vers le haut ou vers le bas)
   {
-    x+= sign(vsp); // Récupère le status de vsp (1 ou -1, pour haut ou bas)
+    y+= sign(vsp); // Récupère le status de vsp (1 ou -1, pour haut ou bas)
   }
   vsp = 0; // Vertical speed passe à 0 si obj_player rencontre obj_wall1, le joueur s'arrête et la collision est simulée
 }
-x += vsp;
+y += vsp;
 
 
 // Left Wall Jump

@@ -44,12 +44,10 @@ y += vsp;
 
 // Wall Jump Left
 
-if (place_meeting(x-1,y,obj_wall1)) && (!place_meeting(x,y+1,obj_wall1)) && (key_jump)
-    vsp = -jumpspeed
-    hsp = movespeed
+if (place_meeting(x-1,y,obj_wall1)) && (!place_meeting(x,y+1,obj_wall1)) && (key_jump) // Si le joueur touche un mur sur sa gauche, et qu'il n'est pas au sol, et qu'il appui sur ESPACE
+    vsp = -jumpspeed // Alors il sera poussé vers le haut (-jumpspeed = force vertical de bas vers le haut)
     
 // Wall Jump Right
 
-if (place_meeting(x+1,y,obj_wall1)) && (!place_meeting(x,y+1,obj_wall1)) && (key_jump)
-    vsp = -jumpspeed
-    hsp = movespeed
+if (place_meeting(x+1,y,obj_wall1)) && (!place_meeting(x,y+1,obj_wall1)) && (key_jump) // Si le joueur touche un mur sur sa droite, et qu'il n'est pas au sol, et qu'il appui sur ESPACE
+    vsp = -jumpspeed // Alors il sera poussé vers le haut (-jumpspeed = force vertical de bas vers le haut)
